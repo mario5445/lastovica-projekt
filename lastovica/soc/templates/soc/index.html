@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOČ</title>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav"></nav>
+    </header>
+    <main class="main">
+        <div class="filters">
+
+        </div>
+        <div class="content">
+            <div class="overview">
+                {% for tema in temy %}
+                    <div class="overview-item">
+                        <h2 class="heading-secondary"></h2>
+                        <div class="description-container info-container">
+                            <h3 class="heading-tertiary">Popis:</h3>
+                            <div class="description-text">{{tema.popis}}</div>
+                        </div>
+                        <div class="consultant-container info-container">
+                            <h3 class="heading-tertiary">Konzultant:</h3>
+                            <div class="info-text">{{tema.konzultant}}</div>
+                        </div>
+                        <div class="student-container info-container">
+                            <h3 class="heading-tertiary">Študent:</h3>
+                            <div class="info-text">{{tema.student}}</div>
+                        </div>
+                        <div class="department-container info-container">
+                            <h3 class="heading-tertiary">Odbor:</h3>
+                            <div class="info-text">{{tema.odbor}}</div>
+                        </div>
+                        <div class="info-container">
+                            <div class="availability">{{tema.dostupnost}}</div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </main>
+</body>
+</html>
