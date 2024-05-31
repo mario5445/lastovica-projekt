@@ -1,0 +1,15 @@
+modely:
+	téma - názov povinny, popis povinny, konzultant povinny, študent nepovinny, odbor povinny, dostupnosť (voľné, čakajúce na schválenie, obsadené) povinna, počet konzultácií
+	učiteľ - meno, priezvisko, email, heslo
+	študent - meno, priezvisko, trieda, email, heslo
+
+endpointy:
+	všetky témy (najskôr voľné)
+	učiteľ - témy ako konzultant
+	student - jeho tema
+	tema - o jednej teme
+	štatistiky - počet tem, schvalene temy, cakajuce temy, volne temy, pocet studentov, pocet ucitelov
+	nova tema - formular
+
+Novy django projekt nazov - {MOJE PRIEZVISKO BEZ DIAKRITIKY}
+	
