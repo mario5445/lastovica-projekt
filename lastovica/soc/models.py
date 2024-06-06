@@ -65,7 +65,7 @@ class Dostupnost(models.Model):
         return f"{self.nazov}"
 
 class Tema(models.Model):
-    nazov = models.CharField(max_length=32)
+    nazov = models.CharField(max_length=64)
     popis = models.TextField()
     konzultant = models.ForeignKey(Ucitel, on_delete=models.CASCADE)
     student = models.ForeignKey(Student, blank=True, null=True, on_delete=models.CASCADE)
