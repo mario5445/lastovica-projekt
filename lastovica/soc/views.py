@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.core.serializers import serialize
 from . models import *
 
 # Create your views here.
@@ -8,6 +9,7 @@ def index(request):
     ucitelia = Ucitel.objects.all()
     dostupnosti = Dostupnost.objects.all()
     odbory = Odbor.objects.all()
+
     return render(request, 'soc/index.html', {
         "temy" : temy,
         "ucitelia" : ucitelia,

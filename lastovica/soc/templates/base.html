@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}{% endblock title %} | SOČ</title>
+    <link rel="stylesheet" href="{% static "soc/css/base.css" %}"> 
+    <link rel="stylesheet" href="{% static "soc/css/index.css" %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet"/>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <div class="nav-item"><a href="#" class="link">Stredoškolská odborná činnosť</a></div>
+        <div class="nav-item new-topic"><a href="#" class="link">Nová téma</a></div>
+      </nav>
+    </header>
+    <main class="main">
+        {% block content %}{% endblock content %}
+    </main>
+</body> 
+</html>

@@ -50,12 +50,10 @@
   }
 }
 
-
-
 .filters {
   display: flex;
   padding: 3.5rem var(--base-padding);
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: stretch;
   margin-bottom: 3rem;
 }
@@ -66,7 +64,6 @@
   font-size: 1.6rem;
   justify-content: end;
 }
-
 
 .label {
   color: var(--tertiary-color);
@@ -87,12 +84,31 @@
   }
 }
 
-#department {
+#department-select {
   width: 25rem;
 }
 
-#teacher {
+#teacher-select {
   width: 30rem;
+}
+
+#topic-input {
+  width: 28rem;
+}
+
+.reset-btn{
+  align-self: flex-end;
+  font-size: 2rem;
+  padding: 1rem 1.6rem;
+  background-color: var(--reset-btn-color);
+  border-radius: 6px;
+  color: var(--white-color);
+  transition: all .3s;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--reset-btn-hover-color);
+  }
 }
 
 .content {

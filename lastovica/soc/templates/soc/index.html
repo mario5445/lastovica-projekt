@@ -1,88 +1,78 @@
+{% extends "base.html" %}
+{% block title %}Témy{% endblock title %}
+{% block content %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SOČ</title>
-    <link rel="stylesheet" href="{% static "soc/css/base.css" %}"> 
-    <link rel="stylesheet" href="{% static "soc/css/index.css" %}">
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet"/>
-  </head>
-  <body>
-    <header class="header">
-      <nav class="nav">
-        <div class="nav-item"><a href="#" class="link">Stredoškolská odborná činnosť</a></div>
-        <div class="nav-item new-topic"><a href="#" class="link">Nová téma</a></div>
-      </nav>
-    </header>
-    <main class="main">
-      <div class="filters">
-        <div class="input-group">
-          <label for="topic" class="label">Názov témy</label>
-          <input type="text" id="topic" name="topic" class="input" />
-        </div>
-        <div class="input-group">
-          <label for="teacher" class="label">Konzultujúci učiteľ</label>
-          <select name="teacher" id="teacher" class="input">
-            <option selected value="all">Všetky</option>
-            {% for ucitel in ucitelia %}
-            <option value="{{ucitel.id}}">{{ucitel}}</option>
-            {% endfor %}
-          </select>
-        </div>
-        <div class="input-group">
-          <label for="department" class="label">Odbor</label>
-          <select name="department" id="department" class="input">
-            <option selected value="all">Všetky</option>
-            {% for odbor in odbory %}
-            <option value="{{odbor.id}}">{{odbor}}</option>
-            {% endfor %}
-          </select>
-        </div>
-        <div class="input-group">
-          <label for="availability" class="label">Dostupnosť</label>
-          <select name="availability" id="availability" class="input">
-            <option selected value="all">Všetky</option>
-            {% for dostupnost in dostupnosti %}
-            <option value="{{dostupnost.id}}">{{dostupnost}}</option>
-            {% endfor %}
-          </select>
+<div class="filters">
+  <div class="input-group">
+    <label for="topic-input" class="label">Názov témy</label>
+    <input type="text" id="topic-input" name="topic" class="input" />
+  </div>
+  <div class="input-group">
+    <label for="teacher-select" class="label">Konzultujúci učiteľ</label>
+    <select name="teacher" id="teacher-select" class="input">
+      <option selected value="all">Všetko</option>
+      {% for ucitel in ucitelia %}
+      <option value="{{ucitel.id}}">{{ucitel}}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="input-group">
+    <label for="department-select" class="label">Odbor</label>
+    <select name="department" id="department-select" class="input">
+      <option selected value="all">Všetko</option>
+      {% for odbor in odbory %}
+      <option value="{{odbor.id}}">{{odbor}}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="input-group">
+    <label for="availability-select" class="label">Dostupnosť</label>
+    <select name="availability" id="availability-select" class="input">
+      <option selected value="all">Všetko</option>
+      {% for dostupnost in dostupnosti %}
+      <option value="{{dostupnost.id}}">{{dostupnost}}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="reset-btn">Reset</div>
+</div>
+<div class="content">
+  <div class="overview">
+    {% for tema in temy %}
+    <div class="overview-item">
+      <h2 class="heading-secondary"><a href="#" class="link topic">{{tema.nazov}}</a></h2>
+      <div class="description-container info-container">
+        <h3 class="heading-tertiary">Popis:</h3>
+        <div class="description-tex info-text">{{tema.popis}}</div>
+      </div>
+      <div class="consultant-container info-container inline-container">
+        <h3 class="heading-tertiary">Konzultant:</h3>
+        <div class="info-text teacher" data-id="{{ tema.konzultant.id }}">{{tema.konzultant}}</div>
+      </div>
+      <div class="student-container info-container inline-container">
+        <h3 class="heading-tertiary">Študent:</h3>
+        <div class="info-text student" data-id="{{ tema.student.id }}">
+          {% if tema.student == None %}
+          ---
+          {% else %}
+          {{tema.student}}
+          {% endif %}
         </div>
       </div>
-      <div class="content">
-        <div class="overview">
-          {% for tema in temy %}
-          <div class="overview-item">
-            <h2 class="heading-secondary"><a href="#" class="link">{{tema.nazov}}</a></h2>
-            <div class="description-container info-container">
-              <h3 class="heading-tertiary">Popis:</h3>
-              <div class="description-tex info-text">{{tema.popis}}</div>
-            </div>
-            <div class="consultant-container info-container inline-container">
-              <h3 class="heading-tertiary">Konzultant:</h3>
-              <div class="info-text">{{tema.konzultant}}</div>
-            </div>
-            <div class="student-container info-container inline-container">
-              <h3 class="heading-tertiary">Študent:</h3>
-              <div class="info-text">{{tema.student}}</div>
-            </div>
-            <div class="department-container info-container inline-container">
-              <h3 class="heading-tertiary">Odbor:</h3>
-              <div class="info-text">{{tema.odbor}}</div>
-            </div>
-            <div class="info-container availability-container">
-              <div class="availability 
+      <div class="department-container info-container inline-container">
+        <h3 class="heading-tertiary">Odbor:</h3>
+        <div class="info-text department" data-id="{{ tema.odbor.id }}">{{tema.odbor}}</div>
+      </div>
+      <div class="info-container availability-container">
+        <div class="availability 
               {% if tema.dostupnost.nazov == 'Obsadené' %}occupied{% endif %} 
               {% if tema.dostupnost.nazov == 'Voľné' %}free{% endif %} 
-              {% if tema.dostupnost.nazov == 'Čaká na schválenie' %}pending{% endif %} ">{{ tema.dostupnost }}</div>
-            </div>
-          </div>
-          {% endfor %}
-        </div>
+              {% if tema.dostupnost.nazov == 'Čaká na schválenie' %}pending{% endif %} "
+          data-id="{{ tema.dostupnost.id }}">{{ tema.dostupnost }}</div>
       </div>
-    </main>
-  </body>
-</html>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+<script src="{% static " soc/js/filters.js" %}"></script>
+{% endblock content %}
