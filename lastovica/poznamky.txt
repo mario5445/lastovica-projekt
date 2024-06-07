@@ -4,12 +4,12 @@ modely:
 	študent - meno, priezvisko, trieda, email, heslo
 
 endpointy:
-	všetky témy (najskôr voľné)
-	učiteľ - témy ako konzultant
+	všetky témy (najskôr voľné) -> hotovo
+	učiteľ - témy ako konzultant -> hotovo ?
 	student - jeho tema
 	tema - o jednej teme
 	štatistiky - počet tem, schvalene temy, cakajuce temy, volne temy, pocet studentov, pocet ucitelov
-	nova tema - formular
+	nova tema - formular -> hotovo
 
 Novy django projekt nazov - {MOJE PRIEZVISKO BEZ DIAKRITIKY}
 	

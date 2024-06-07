@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.core.serializers import serialize
 from . models import *
 
@@ -9,12 +9,14 @@ def index(request):
     ucitelia = Ucitel.objects.all()
     dostupnosti = Dostupnost.objects.all()
     odbory = Odbor.objects.all()
+    range_filter = list(range(1, 4))
 
     return render(request, 'soc/index.html', {
         "temy" : temy,
         "ucitelia" : ucitelia,
         "dostupnosti" : dostupnosti,
-        "odbory" : odbory
+        "odbory" : odbory,
+        "range_filter" : range_filter
     })
 
 def nova_tema(request):
@@ -34,3 +36,13 @@ def nova_tema(request):
         tema = Tema(nazov=nazov, popis=popis, konzultant=konzultant, odbor=odbor)
         tema.save()
         return redirect(index)
+
+def ucitel(request, pk):
+    ucitel = get_object_or_404(Ucitel, id=pk)
+    temy = Tema.objects.filter(konzultant=ucitel)
+    range_filter = list(range(1, 4))
+    return render(request, "soc/teacher.html", {
+        "ucitel" : ucitel,
+        "temy" : temy,
+        "range_filter" : range_filter
+    })
