@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+{% block style %}
+<link rel="stylesheet" href="{% static "soc/css/new.css" %}">
+{% endblock style %}
+{% block title %}Nová téma{% endblock title %}
+
+{% block content %}
+<h1 class="heading-primary new-heading">Nová téma</h1>
+<div class="form-container">
+    <form method="post">
+        {% csrf_token %}
+        <div class="input-group new-group">
+            <label for="nazov" class="label new-label">Názov</label>
+            <input type="text" required class="input" id="nazov" name="nazov" max="64" placeholder="Názov témy">
+        </div>
+        <div class="input-group new-group">
+            <label for="popis" class="label new-label">Popis</label>
+            <textarea name="popis" required class="textarea" id="popis" cols="30" rows="5"></textarea>
+        </div>
+        <div class="input-group new-group">
+            <label for="konzultant" class="label new-label">Konzultant</label>
+            <select name="konzultant" id="konzultant" class="input">
+                {% for ucitel in ucitelia %}
+                    <option value="{{ucitel.id}}">{{ucitel}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="input-group new-group">
+            <label for="odbor" class="label new-label">Odbor</label>
+            <select name="odbor" id="odbor" class="input">
+                {% for odbor in odbory %}
+                    <option value="{{odbor.id}}">{{odbor}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="btn-container">
+            <button type="submit" class="btn reset-btn submit-btn">Pridať</button>
+        </div>
+    </form>
+</div>
+{% endblock content %}

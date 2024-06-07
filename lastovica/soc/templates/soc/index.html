@@ -1,7 +1,10 @@
 {% extends "base.html" %}
+{% load static %}
+{% block style %}
+<link rel="stylesheet" href="{% static "soc/css/index.css" %}">
+{% endblock style %}
 {% block title %}Témy{% endblock title %}
 {% block content %}
-{% load static %}
 <div class="filters">
   <div class="input-group">
     <label for="topic-input" class="label">Názov témy</label>
@@ -34,7 +37,7 @@
       {% endfor %}
     </select>
   </div>
-  <div class="reset-btn">Reset</div>
+  <div class="btn reset-btn filters-reset-btn">Reset</div>
 </div>
 <div class="content">
   <div class="overview">
@@ -43,7 +46,7 @@
       <h2 class="heading-secondary"><a href="#" class="link topic">{{tema.nazov}}</a></h2>
       <div class="description-container info-container">
         <h3 class="heading-tertiary">Popis:</h3>
-        <div class="description-tex info-text">{{tema.popis}}</div>
+        <div class="description-text info-text">{{tema.popis}}</div>
       </div>
       <div class="consultant-container info-container inline-container">
         <h3 class="heading-tertiary">Konzultant:</h3>
@@ -74,5 +77,5 @@
     {% endfor %}
   </div>
 </div>
-<script src="{% static " soc/js/filters.js" %}"></script>
+<script src="{% static "soc/js/filters.js" %}"></script>
 {% endblock content %}

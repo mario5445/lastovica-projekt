@@ -32,11 +32,6 @@ function filterItems(){
 }
 
 topicInput.addEventListener('input', filterItems);
-topicInput.addEventListener('keydown', function(e){
-    if (e.key === "Enter") {
-        filterItems()
-    }
-});
 teacherSelect.addEventListener('change', filterItems);
 departmentSelect.addEventListener('change', filterItems);
 availabilitySelect.addEventListener('change', filterItems);

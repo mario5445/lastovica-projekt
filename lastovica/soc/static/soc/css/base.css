@@ -45,6 +45,23 @@ a {
   text-decoration: none;
 }
 
-input, select {
+input, select, textarea, button {
   font: inherit;
+}
+
+.main {
+  padding: 0 var(--base-padding);
+  animation: fadeIn 1s;
+}
+
+@keyframes fadeIn {
+  0% {
+    transform: translate(-10%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }

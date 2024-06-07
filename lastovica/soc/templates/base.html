@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% block title %}{% endblock title %} | SOČ</title>
     <link rel="stylesheet" href="{% static "soc/css/base.css" %}"> 
-    <link rel="stylesheet" href="{% static "soc/css/index.css" %}">
+    <link rel="stylesheet" href="{% static "soc/css/components.css" %}">
+    <link rel="stylesheet" href="{% static "soc/css/nav.css" %}">
+    {% block style %}{% endblock style %}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet"/>
@@ -14,8 +16,8 @@
   <body>
     <header class="header">
       <nav class="nav">
-        <div class="nav-item"><a href="#" class="link">Stredoškolská odborná činnosť</a></div>
-        <div class="nav-item new-topic"><a href="#" class="link">Nová téma</a></div>
+        <div class="nav-item"><a href="{% url "index" %}" class="link">Stredoškolská odborná činnosť</a></div>
+        <div class="nav-item new-topic"><a href="{% url "nova_tema" %}" class="link">Nová téma</a></div>
       </nav>
     </header>
     <main class="main">

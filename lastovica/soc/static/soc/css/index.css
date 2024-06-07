@@ -1,87 +1,9 @@
-.nav {
-  display: flex;
-  padding: 2.4rem var(--base-padding);
-  font-size: 2rem;
-  justify-content: space-between;
-  align-items: center;
-  background-color: var(--primary-color);
-  font-weight: 600;
-  color: var(--secondary-color);
-}
-
-.nav-item {
-  overflow: hidden;
-  height: fit-content;
-}
-
-.link {
-  position: relative;
-  display: inline-flex;
-  overflow: hidden;
-
-  &::before {
-    content: "";
-    position: absolute;
-    width: 50%;
-    height: 1px;
-    background-color: var(--secondary-color);
-    bottom: 0;
-    left: -50%;
-    transition: all .4s;
-  }
-
-  &::after {
-    content: "";
-    position: absolute;
-    width: 50%;
-    height: 1px;
-    background-color: var(--secondary-color);
-    bottom: 0;
-    right: -50%;
-    transition: all .4s;
-  }
-
-  &:hover::before {
-    left: 0;
-  }
-
-  &:hover::after {
-    right: 0;
-  }
-}
-
 .filters {
   display: flex;
-  padding: 3.5rem var(--base-padding);
+  padding: 3.5rem 0;
   justify-content: space-between;
   align-items: stretch;
   margin-bottom: 3rem;
-}
-
-.input-group {
-  display: flex;
-  flex-direction: column;
-  font-size: 1.6rem;
-  justify-content: end;
-}
-
-.label {
-  color: var(--tertiary-color);
-  font-weight: 500;
-  font-size: 2.1rem;
-}
-
-.input {
-  background-color: var(--back-color);
-  border: none;
-  border-bottom: 2px solid var(--primary-color);
-  padding: 0.9rem;
-  transition: all .3s;
-
-  &:focus {
-    outline: none;
-    border-color: var(--quaternary-color);
-  }
 }
 
 #department-select {
@@ -96,23 +18,8 @@
   width: 28rem;
 }
 
-.reset-btn{
+.filters-reset-btn {
   align-self: flex-end;
-  font-size: 2rem;
-  padding: 1rem 1.6rem;
-  background-color: var(--reset-btn-color);
-  border-radius: 6px;
-  color: var(--white-color);
-  transition: all .3s;
-  cursor: pointer;
-
-  &:hover {
-    background-color: var(--reset-btn-hover-color);
-  }
-}
-
-.content {
-  padding: 0 var(--base-padding);
 }
 
 .overview-item {
@@ -121,24 +28,15 @@
   border-radius: 3px;
   box-shadow: var(--shadow);
   margin-bottom: 3rem;
-  
-  & > *:not(:last-child) {
+  transition: all .3s;
+
+  &>*:not(:last-child) {
     margin-bottom: 0.5rem;
   }
-}
 
-.heading-secondary {
-  font-size: 2.2rem;
-}
-
-.heading-tertiary {
-  font-size: 1.8rem;
-}
-
-.inline-container {
-  display: flex;
-  align-items: baseline;
-  gap: 0.8rem;
+  &:hover {
+    transform: translateY(-3%);
+  }
 }
 
 .info-text {
@@ -146,7 +44,7 @@
   font-weight: 500;
 }
 
-.availability-container{
+.availability-container {
   display: flex;
 }
 
@@ -168,5 +66,4 @@
 
 .pending {
   background-color: var(--yellow-color);
-  /* color: var(--white-color); */
 }

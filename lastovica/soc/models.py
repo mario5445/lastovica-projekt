@@ -64,13 +64,16 @@ class Dostupnost(models.Model):
     def __str__(self) -> str:
         return f"{self.nazov}"
 
+def get_default_availability():
+    return Dostupnost.objects.get(nazov="Voľné")
+
 class Tema(models.Model):
     nazov = models.CharField(max_length=64)
     popis = models.TextField()
     konzultant = models.ForeignKey(Ucitel, on_delete=models.CASCADE)
     student = models.ForeignKey(Student, blank=True, null=True, on_delete=models.CASCADE)
     odbor = models.ForeignKey(Odbor, on_delete=models.CASCADE)
-    dostupnost = models.ForeignKey(Dostupnost, on_delete=models.CASCADE)
+    dostupnost = models.ForeignKey(Dostupnost, default=get_default_availability, on_delete=models.CASCADE)
     pocet_konzultacii = models.IntegerField(default=0)
 
     class Meta:
