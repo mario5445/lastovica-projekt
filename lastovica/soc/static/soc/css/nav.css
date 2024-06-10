@@ -49,3 +49,9 @@
         right: 0;
     }
 }
+
+.new-topic {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}

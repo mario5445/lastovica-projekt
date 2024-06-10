@@ -46,3 +46,13 @@ def ucitel(request, pk):
         "temy" : temy,
         "range_filter" : range_filter
     })
+
+def student(request, pk):
+    student = get_object_or_404(Student, id=pk)
+    temy = Tema.objects.filter(student=student)
+    range_filter = list(range(1,4))
+    return render(request, 'soc/student.html', {
+        "student" : student,
+        "temy" : temy,
+        "range_filter" : range_filter
+    })

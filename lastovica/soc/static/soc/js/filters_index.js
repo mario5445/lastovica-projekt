@@ -3,7 +3,7 @@ const teacherSelect = document.querySelector('#teacher-select');
 const departmentSelect = document.querySelector('#department-select');
 const availabilitySelect = document.querySelector('#availability-select');
 const overviewItems = document.querySelectorAll('.overview-item');
-const resetBtn = document.querySelector('.reset-btn');
+const resetBtn = document.querySelector('.filters-reset-btn');
 
 function filterItems(){
     const topicFilter = topicInput.value.toLowerCase().trim();
@@ -37,6 +37,7 @@ departmentSelect.addEventListener('change', filterItems);
 availabilitySelect.addEventListener('change', filterItems);
 
 resetBtn.addEventListener('click', function(){
+    resetBtn.classList.toggle('rotate');
     topicInput.value = "";
     teacherSelect.selectedIndex = 0;
     departmentSelect.selectedIndex = 0;

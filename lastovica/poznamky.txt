@@ -5,8 +5,8 @@ modely:
 
 endpointy:
 	všetky témy (najskôr voľné) -> hotovo
-	učiteľ - témy ako konzultant -> hotovo ?
-	student - jeho tema
+	učiteľ - témy ako konzultant -> hotovo 
+	student - jeho tema -> hotovo
 	tema - o jednej teme
 	štatistiky - počet tem, schvalene temy, cakajuce temy, volne temy, pocet studentov, pocet ucitelov
 	nova tema - formular -> hotovo

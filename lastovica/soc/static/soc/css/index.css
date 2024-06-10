@@ -19,5 +19,37 @@
 }
 
 .filters-reset-btn {
-  align-self: flex-end;
+  margin-right: 3rem;
+  align-self: end;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0;
+  padding: 0;
+  transition: all .8s ease-in-out;
+}
+
+.rotate {
+  transform: rotate(360deg);
+}
+
+.availability-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sign-up-btn {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  font-weight: 700;
+
+  &:hover {
+    background-color: var(--sign-up-btn-hover-color);
+    transform: translateY(-8%);
+  }
+
+  &:active {
+    transform: translateY(-3%);
+  }
 }

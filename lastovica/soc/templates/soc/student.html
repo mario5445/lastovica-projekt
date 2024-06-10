@@ -1,18 +1,10 @@
 {% extends "base.html" %}
-{% load static %}
-{% block title %}{{ucitel}}{% endblock title %}
-{% block style %}
-<link rel="stylesheet" href="{% static "soc/css/teacher.css" %}">
-{% endblock style %}
+{% block title %}{{student}}{% endblock title %}
+{% block style %}{% endblock style %}
 {% block content %}
-    <div class="heading-container">
-        <h1 class="heading-primary teacher-heading">{{ucitel}} - témy</h1>
-        <div class="search-group">
-            <input type="text" placeholder="Názov témy" class="input" id="topic-name" name="topic-name">
-        </div>
-    </div>
-    <div class="overview">
-        {% if temy %}
+<h1 class="heading-container heading-primary">{{student}} - témy</h1>
+<div class="overview">
+    {% if temy %}
             {% for tema in temy %}
                 <div class="overview-item">
                     <h2 class="heading-secondary"><a href="#" class="link topic">{{tema.nazov}}</a></h2>
@@ -64,6 +56,5 @@
                 </div>
             {% endfor %}
         {% endif %}
-    </div>
-    <script src="{% static "soc/js/filters_teacher.js" %}"></script>
+</div>
 {% endblock content %}
