@@ -2,3 +2,22 @@
     font-size: 1.6rem;
     width: 28rem;
 }
+
+.consultations {
+    display: flex;
+    gap: 3rem;
+}
+
+.consultations-buttons {
+    display: flex;
+    gap: .5rem;
+}
+
+.consultations-form {
+    display: flex;
+    gap: .5rem;
+}
+
+.active {
+    cursor: pointer;
+}

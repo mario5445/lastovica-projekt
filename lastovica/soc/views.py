@@ -38,14 +38,20 @@ def nova_tema(request):
         return redirect(index)
 
 def ucitel(request, pk):
-    ucitel = get_object_or_404(Ucitel, id=pk)
-    temy = Tema.objects.filter(konzultant=ucitel)
-    range_filter = list(range(1, 4))
-    return render(request, "soc/teacher.html", {
-        "ucitel" : ucitel,
-        "temy" : temy,
-        "range_filter" : range_filter
-    })
+    if request.method == "GET":
+        ucitel = get_object_or_404(Ucitel, id=pk)
+        temy = Tema.objects.filter(konzultant=ucitel)
+        range_filter = list(range(1, 4))
+        return render(request, "soc/teacher.html", {
+            "ucitel" : ucitel,
+            "temy" : temy,
+            "range_filter" : range_filter
+        })
+    elif request.method == "POST":
+        tema = Tema.objects.get(pk=int(request.POST.get('topic-id')))
+        tema.pocet_konzultacii = request.POST.get('topic-consultations')
+        tema.save()
+        return redirect('ucitel', pk=tema.konzultant.pk)
 
 def student(request, pk):
     student = get_object_or_404(Student, id=pk)
@@ -54,5 +60,13 @@ def student(request, pk):
     return render(request, 'soc/student.html', {
         "student" : student,
         "temy" : temy,
+        "range_filter" : range_filter
+    })
+
+def tema(request, pk):
+    tema = get_object_or_404(Tema, id=pk)
+    range_filter = list(range(1,4))
+    return render(request, 'soc/topic.html', {
+        "tema" : tema,
         "range_filter" : range_filter
     })
