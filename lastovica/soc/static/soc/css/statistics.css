@@ -1,0 +1,13 @@
+.charts {
+    display: flex;
+    margin-top: 5rem;
+    justify-content: space-between;
+}
+
+.pie-chart {
+    flex-basis: 32%;
+}
+
+.bar-chart {
+    flex-basis: 60%;
+}

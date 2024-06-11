@@ -12,6 +12,8 @@
 .nav-item {
     overflow: hidden;
     height: fit-content;
+    display: flex;
+    gap: 4rem;
 }
 
 .link {

@@ -7,8 +7,8 @@ endpointy:
 	všetky témy (najskôr voľné) -> hotovo
 	učiteľ - témy ako konzultant -> hotovo 
 	student - jeho tema -> hotovo
-	tema - o jednej teme
-	štatistiky - počet tem, schvalene temy, cakajuce temy, volne temy, pocet studentov, pocet ucitelov
+	tema - o jednej teme -> hotovo
+	štatistiky - počet tem, schvalene temy, cakajuce temy, volne temy, pocet studentov, pocet ucitelov -> hotovo
 	nova tema - formular -> hotovo
 
 Novy django projekt nazov - {MOJE PRIEZVISKO BEZ DIAKRITIKY}

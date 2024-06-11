@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.core.serializers import serialize
+from django.db.models import Count
 from . models import *
 
 # Create your views here.
@@ -69,4 +69,16 @@ def tema(request, pk):
     return render(request, 'soc/topic.html', {
         "tema" : tema,
         "range_filter" : range_filter
+    })
+
+def statistiky(request):
+    pocet_tem = Tema.objects.count()
+    dostupnosti = Dostupnost.objects.annotate(temy=Count('tema'))
+    studenti = Student.objects.count()
+    ucitelia = Ucitel.objects.count()
+    return render(request, 'soc/statistics.html', {
+        "pocet_tem" : pocet_tem,
+        "dostupnosti" : dostupnosti,
+        "studenti" : studenti, 
+        "ucitelia" : ucitelia
     })
