@@ -1,3 +1,5 @@
+import json
+from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.db.models import Count
 from . models import *
@@ -5,7 +7,7 @@ from . models import *
 # Create your views here.
 
 def index(request):
-    temy = Tema.objects.all().order_by('dostupnost_id')
+    temy = Tema.objects.all().order_by('dostupnost_id', "nazov")
     ucitelia = Ucitel.objects.all()
     dostupnosti = Dostupnost.objects.all()
     odbory = Odbor.objects.all()
@@ -40,22 +42,17 @@ def nova_tema(request):
 def ucitel(request, pk):
     if request.method == "GET":
         ucitel = get_object_or_404(Ucitel, id=pk)
-        temy = Tema.objects.filter(konzultant=ucitel)
+        temy = Tema.objects.filter(konzultant=ucitel).order_by("dostupnost_id", "nazov")
         range_filter = list(range(1, 4))
         return render(request, "soc/teacher.html", {
             "ucitel" : ucitel,
             "temy" : temy,
             "range_filter" : range_filter
         })
-    elif request.method == "POST":
-        tema = Tema.objects.get(pk=int(request.POST.get('topic-id')))
-        tema.pocet_konzultacii = request.POST.get('topic-consultations')
-        tema.save()
-        return redirect('ucitel', pk=tema.konzultant.pk)
 
 def student(request, pk):
     student = get_object_or_404(Student, id=pk)
-    temy = Tema.objects.filter(student=student)
+    temy = Tema.objects.filter(student=student).order_by("dostupnost_id", "nazov")
     range_filter = list(range(1,4))
     return render(request, 'soc/student.html', {
         "student" : student,
@@ -82,3 +79,20 @@ def statistiky(request):
         "studenti" : studenti, 
         "ucitelia" : ucitelia
     })
+
+def update_konzultacie(request):
+    if request.method == 'POST':
+        try: 
+            data = json.loads(request.body)
+            id = data['id']
+            value = data['value']
+
+            tema = Tema.objects.get(pk=id)
+            tema.pocet_konzultacii = value
+            tema.save()
+            return JsonResponse({'status' : 'success'})
+        except Tema.DoesNotExist:
+            return JsonResponse({'status' : 'error', 'message' : 'Model not found'}, status=404)
+        except Exception as e:
+            return JsonResponse({'status' : 'error', 'message' : str(e)}, status=404)
+            

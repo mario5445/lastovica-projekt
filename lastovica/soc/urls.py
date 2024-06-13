@@ -7,5 +7,6 @@ urlpatterns = [
     path('ucitel/<int:pk>', views.ucitel, name="ucitel"),
     path('student/<int:pk>', views.student, name="student"),
     path('tema/<int:pk>', views.tema, name="tema"),
-    path('statistiky', views.statistiky, name="statistiky")
+    path('statistiky', views.statistiky, name="statistiky"),
+    path('update_konzultacie/', views.update_konzultacie, name="update_konzultacie")
 ]

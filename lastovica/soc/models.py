@@ -79,7 +79,7 @@ class Tema(models.Model):
     class Meta:
         verbose_name = "Téma"
         verbose_name_plural = "Témy"
-        ordering = ["-dostupnost"]
+        ordering = ["-dostupnost", "nazov"]
 
     def __str__(self) -> str:
         return f"{self.nazov}"

@@ -1,23 +1,23 @@
 :root {
   --base-padding: 10rem;
-  --primary-color: #8EDF2A;
-  --secondary-color: #0D1821;
-  --tertiary-color: #5386E4;
+  --primary-color: rgb(142, 223, 42);
+  --secondary-color: rgb(13, 24, 33);
+  --tertiary-color: rgb(83, 134, 228);
   --quaternary-color: #FF3F00;
-  --quinary-color: #C9E4E7;
-  
+  --quinary-color: rgb(201, 228, 231);
+
   --back-color: #f8f4f4;
   --white-color: #fff;
-  --red-color: #D7263D;
-  --green-color: #0A8754;
-  --yellow-color: #DE9E36;
-  --gray-color: #95A3A4;
+  --red-color: rgb(215, 38, 61);
+  --green-color: rgb(10, 135, 84);
+  --yellow-color: rgb(222, 158, 54);
+  --gray-color: rgb(149, 163, 164);
   --reset-btn-color: #2767dd;
-  --reset-btn-hover-color: #205ccb; 
+  --reset-btn-hover-color: #205ccb;
   --sign-up-btn-hover-color: #81d01f;
 
   --shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  
+
 }
 
 *,
@@ -47,7 +47,10 @@ a {
   text-decoration: none;
 }
 
-input, select, textarea, button {
+input,
+select,
+textarea,
+button {
   font: inherit;
 }
 

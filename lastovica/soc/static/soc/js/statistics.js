@@ -10,9 +10,9 @@
             label: 'Témy',
             data: datas.map(x => x.count),
             backgroundColor: [
-                'rgb(255, 99, 132)',
-                'rgb(54, 162, 235)',
-                'rgb(255, 205, 86)'
+                'rgb(142, 223, 42)',
+                'rgb(83, 134, 228)',
+                'rgb(201, 228, 231)'
             ],
             hoverOffset: 4
         }]
@@ -39,9 +39,9 @@
             label: 'Užívatelia',
             data: [+students, +teachers],
             backgroundColor: [
-                'rgb(255, 99, 132)',
-                'rgb(54, 162, 235)',
-                'rgb(255, 205, 86)'
+                'rgb(142, 223, 42)',
+                'rgb(83, 134, 228)',
+                'rgb(201, 228, 231)'
             ],
             hoverOffset: 4
         }]
